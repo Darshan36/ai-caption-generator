@@ -13,7 +13,7 @@ import java.util.Set;
 @Service
 public class GeminiService {
 
-    private static final String API_KEY = "AIzaSyC240v6AdN2A3iNw0vyLLaZqhzFJHb80ws";
+    private static final String API_KEY = "YOUR_GEMINI_API_KEY";
     private static final String API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=" + API_KEY;
 
     private static final Set<String> SUPPORTED_IMAGE_TYPES = Set.of(
