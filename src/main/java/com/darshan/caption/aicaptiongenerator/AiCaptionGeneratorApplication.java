@@ -1,0 +1,13 @@
+package com.darshan.caption.aicaptiongenerator;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class AiCaptionGeneratorApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(AiCaptionGeneratorApplication.class, args);
+	}
+
+}

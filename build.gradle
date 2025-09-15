@@ -1,0 +1,47 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.5.4'
+	id 'io.spring.dependency-management' version '1.1.7'
+}
+
+group = 'com.darshan.caption'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(24)
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	// Core Spring Boot
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+	// --- NEW DEPENDENCIES ---
+	// For Security (Login/Signup)
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+
+	// For Database (Storing users and captions)
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	runtimeOnly 'com.h2database:h2' // In-memory database for simplicity
+
+	// For serving HTML pages easily
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	// --- END NEW DEPENDENCIES ---
+
+	// Existing dependencies
+	implementation 'org.json:json:20240303'
+	implementation 'com.squareup.okhttp3:okhttp:4.12.0'
+	implementation 'com.google.code.gson:gson:2.10.1'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}

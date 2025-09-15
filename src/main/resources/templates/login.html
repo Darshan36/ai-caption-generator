@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Add similar styling from index.html for consistency */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(-45deg, #0f0c29, #302b63, #24243e, #121212);
+            background-size: 400% 400%;
+            animation: gradient-animation 15s ease infinite;
+            color: #e0e0e0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        @keyframes gradient-animation { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+        .form-container { background: rgba(20, 20, 40, 0.6); backdrop-filter: blur(15px); border-radius: 20px; padding: 40px; box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37); border: 1px solid rgba(255, 255, 255, 0.18); width: 90%; max-width: 400px; }
+        h1 { color: white; text-shadow: 0 0 10px #00f2fe; }
+        input { width: 100%; padding: 10px; margin-bottom: 15px; border-radius: 5px; border: 1px solid #4facfe; background: rgba(255,255,255,0.1); color: white; }
+        button { background: #4facfe; color: white; border: none; padding: 12px 30px; border-radius: 50px; cursor: pointer; transition: all 0.3s ease; width: 100%; font-size: 16px; }
+        button:hover { background: #00f2fe; box-shadow: 0 0 15px #00f2fe; }
+        .error { color: #ff4d4d; margin-bottom: 15px; }
+        .link { margin-top: 20px; text-align: center; }
+        a { color: #4facfe; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Login</h1>
+        <div th:if="${param.error}" class="error">
+            Invalid username or password.
+        </div>
+        <div th:if="${param.logout}" class="error">
+            You have been logged out.
+        </div>
+        <form th:action="@{/login}" method="post">
+            <div>
+                <input type="text" id="username" name="username" placeholder="Username" required autofocus>
+            </div>
+            <div>
+                <input type="password" id="password" name="password" placeholder="Password" required>
+            </div>
+            <div>
+                <button type="submit">Log In</button>
+            </div>
+        </form>
+        <div class="link">
+            <p>Don't have an account? <a href="/signup">Sign up</a></p>
+        </div>
+    </div>
+</body>
+</html>
